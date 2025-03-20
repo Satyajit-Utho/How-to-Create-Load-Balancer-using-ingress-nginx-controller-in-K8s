@@ -1,28 +1,33 @@
-```bash
-Step:1 
-# To Install the NGINX Ingress controller
+How to Create a Load Balancer Using K8s in Utho Cloud
+-----------------------------------------------------
+
+Step 1: Install the NGINX Ingress Controller
+-------------------------------------------
+To install the NGINX Ingress controller, run the following command:
+
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
 
-Step:2
-### Note: Installing with Helm
+Step 2: Installing with Helm (Optional)
+---------------------------------------
+If you have Helm installed, you can also use it to install the Ingress-NGINX controller. You don't need to run this command if you've already installed using the previous command:
 
-If you have Helm installed, you can also use it to install the Ingress-NGINX controller. **You don't need to run this command if you've already installed using the previous command**:
-
-```bash
 helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace
 
-
-### Check if the Ingress Controller Pod is Running
-
+Step 3: Check if the Ingress Controller Pod is Running
+------------------------------------------------------
 To check if the Ingress controller pod is running correctly, use the following command:
 
-```bash
 kubectl get pods --namespace ingress-nginx
 
-Step:4
-### Check if the NGINX Ingress Controller Has Been Assigned a Public IP Address
-
+Step 4: Check if the NGINX Ingress Controller Has Been Assigned a Public IP Address
+-----------------------------------------------------------------------------------
 To check if the NGINX Ingress controller has been assigned a public IP address, use the following command:
 
-```bash
 kubectl get service ingress-nginx-controller --namespace=ingress-nginx
+
+Explanation:
+-----------
+- Step 1: Installs the NGINX Ingress controller using kubectl apply.
+- Step 2: Provides an alternative method to install using Helm, in case you prefer using Helm over kubectl.
+- Step 3: Checks if the Ingress controller pods are running correctly.
+- Step 4: Verifies if the Ingress controller has been assigned a public IP.
