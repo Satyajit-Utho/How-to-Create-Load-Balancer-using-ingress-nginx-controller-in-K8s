@@ -1,0 +1,28 @@
+```bash
+Step:1 
+# To Install the NGINX Ingress controller
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
+
+Step:2
+### Note: Installing with Helm
+
+If you have Helm installed, you can also use it to install the Ingress-NGINX controller. **You don't need to run this command if you've already installed using the previous command**:
+
+```bash
+helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace
+
+
+### Check if the Ingress Controller Pod is Running
+
+To check if the Ingress controller pod is running correctly, use the following command:
+
+```bash
+kubectl get pods --namespace ingress-nginx
+
+Step:4
+### Check if the NGINX Ingress Controller Has Been Assigned a Public IP Address
+
+To check if the NGINX Ingress controller has been assigned a public IP address, use the following command:
+
+```bash
+kubectl get service ingress-nginx-controller --namespace=ingress-nginx
